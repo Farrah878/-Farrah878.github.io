@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farah Ali — Data Analyst & Business Intelligence</title>
+  <meta name="description" content="Farah Ali is a Data Analyst specializing in Power BI, Tableau, and Excel, turning raw data into clear insights and interactive dashboards.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#fafafc;--surface:#fff;--surface-alt:#f6f3fd;--ink:#1b1330;
+      --muted:#6e6580;--border:#ece8f7;--violet:#6d4ae8;--violet-dark:#5636c4;
+      --pink:#e85d9e;--violet-tint:#f1edfc;--pink-tint:#fbeaf3;
+      --gradient:linear-gradient(135deg,#6d4ae8 0%,#e85d9e 100%);
+      --container:1160px;--radius-lg:24px;--radius-md:16px;--shadow-card:0 20px 45px -25px rgba(45,24,90,.35);
+      --shadow-soft:0 10px 30px -18px rgba(45,24,90,.25);
+      --font-display:"Sora",sans-serif;--font-body:"Inter",sans-serif
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block} a{color:inherit;text-decoration:none}
+    ul{list-style:none;margin:0;padding:0} h1,h2,h3{font-family:var(--font-display);margin:0;color:var(--ink)}
+    p{margin:0} button{font-family:inherit;cursor:pointer}
+    .section-inner{max-width:var(--container);margin:auto;padding:88px 32px}
+    .section-head{margin-bottom:48px;max-width:560px}
+    .eyebrow{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--violet-dark);margin-bottom:10px}
+    .section-head h2{font-size:clamp(28px,3.4vw,38px);font-weight:700}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 26px;border-radius:999px;font-family:var(--font-display);font-weight:600;font-size:15px;border:1px solid transparent;transition:.18s}
+    .btn-primary{background:var(--gradient);color:#fff;box-shadow:var(--shadow-soft)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-card)}
+    .btn-secondary{background:var(--surface);color:var(--ink);border-color:var(--border)}
+    .btn-secondary:hover{border-color:var(--violet);color:var(--violet-dark)}
+    .btn-outline{background:transparent;color:var(--violet-dark);border-color:#e5defa;width:100%}
+    .btn-outline:hover{background:var(--violet-tint)}
+    .site-header{position:sticky;top:0;z-index:100;background:rgba(250,250,252,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .nav-wrap{max-width:var(--container);margin:auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px}.brand-mark{width:38px;height:38px;border-radius:11px;background:var(--gradient);color:#fff;font-family:var(--font-display);font-weight:700;font-size:14px;display:grid;place-items:center}.brand-name{font-family:var(--font-display);font-weight:600}
+    .primary-nav{display:flex;gap:8px}.nav-link{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--muted);padding:8px 14px;border-radius:999px;transition:.15s}.nav-link:hover{color:var(--violet-dark);background:var(--violet-tint)}
+    .menu-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;background:transparent;border:1px solid var(--border);border-radius:10px}.menu-toggle span{display:block;height:2px;width:18px;margin:auto;background:var(--ink);border-radius:2px;transition:.2s}
+    .menu-toggle.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.menu-toggle.is-open span:nth-child(2){opacity:0}.menu-toggle.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .hero{overflow:hidden}.hero-inner{max-width:var(--container);margin:auto;padding:100px 32px 90px;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+    .hero-copy .eyebrow{color:var(--pink)}.hero-title{font-size:clamp(44px,6vw,72px);font-weight:800;line-height:1.02;margin-bottom:6px;background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-role{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--muted);margin-bottom:20px}.hero-text{font-size:17px;color:var(--muted);max-width:480px;margin-bottom:34px}.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+    .hero-visual{position:relative;height:420px}.panel{position:absolute;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-card);padding:18px}
+    .panel-kpi{top:0;left:10%;width:200px;display:flex;flex-direction:column;gap:6px}.panel-label{font-size:12px;color:var(--muted);font-family:var(--font-display);font-weight:600}.panel-value{font-family:var(--font-display);font-size:30px;font-weight:700;color:var(--violet-dark)}
+    .panel-chart{top:150px;left:0;width:230px}.mini-chart{width:100%;height:80px}.mini-chart polyline{fill:none;stroke:var(--pink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .panel-bars{top:60px;right:0;width:150px;height:140px;display:flex;align-items:flex-end;gap:10px}.panel-bars .bar{flex:1;height:var(--h);border-radius:6px 6px 2px 2px;background:var(--gradient);opacity:.85}
+    .panel-donut{bottom:0;right:12%;width:130px}.donut{width:100%;transform:rotate(-90deg)}.donut-ring{fill:none;stroke:var(--violet-tint);stroke-width:4}.donut-seg{fill:none;stroke:var(--pink);stroke-width:4;stroke-linecap:round}
+    .about{background:var(--surface-alt)}.about-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}.about-text{font-size:18px;color:var(--ink);max-width:620px}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.skill-card{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:18px 20px;box-shadow:var(--shadow-soft);transition:.2s}.skill-card:hover{transform:translateY(-3px)}
+    .skill-icon,.contact-icon{width:42px;height:42px;min-width:42px;border-radius:12px;background:var(--gradient);display:grid;place-items:center;color:#fff;font-family:var(--font-display);font-weight:700;font-size:13px}.skill-name{font-weight:600}
+    
+    /* Project Card Cover Image Styling */
+    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+    .project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);display:flex;flex-direction:column;transition:.2s}
+    .project-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-card)}
+    .project-thumb{position:relative;width:100%;height:220px;overflow:hidden;background:var(--violet-tint)}
+    .project-img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .4s ease}
+    .project-card:hover .project-img{transform:scale(1.05)}
+    
+    .tool-badge{position:absolute;top:14px;left:14px;background:rgba(27,19,48,.78);color:#fff;font:600 12px var(--font-display);padding:6px 12px;border-radius:999px;z-index:2}
+    .project-body{padding:24px;display:flex;flex-direction:column;gap:14px;flex:1}
+    .project-body h3{font-size:19px}.project-summary{color:var(--muted);font-size:15px;flex:1}
+    .contact{background:var(--surface-alt)}.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.contact-copy h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:14px}.contact-copy p{color:var(--muted);font-size:17px;max-width:440px}.contact-list{display:grid;gap:14px}
+    .contact-link{display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:16px 18px;box-shadow:var(--shadow-soft);transition:.15s}.contact-link:hover{transform:translateX(4px);border-color:var(--violet)}
+    .contact-icon{width:38px;height:38px;min-width:38px;border-radius:10px}.contact-text{display:flex;flex-direction:column;gap:2px}.contact-label{font:600 12px var(--font-display);color:var(--muted)}.contact-value{font-size:15px;font-weight:500;word-break:break-word}
+    .site-footer{background:var(--ink);color:rgba(255,255,255,.7)}.footer-inner{padding:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}.footer-inner p{font-size:14px}.footer-links{display:flex;gap:12px}.footer-links .contact-icon{width:34px;height:34px;background:rgba(255,255,255,.12)}
+    
+    /* Modal Banner Styling */
+    .modal-overlay{position:fixed;inset:0;background:rgba(27,19,48,.55);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:.22s;z-index:200}.modal-overlay.is-open{opacity:1;visibility:visible}
+    .modal{background:var(--surface);border-radius:var(--radius-lg);max-width:880px;width:100%;max-height:88vh;overflow-y:auto;position:relative;box-shadow:0 30px 60px -20px rgba(20,10,45,.45);transform:translateY(16px);transition:.22s}.modal-overlay.is-open .modal{transform:translateY(0)}
+    .modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(27,19,48,.75);color:#fff;font-size:20px;z-index:3;cursor:pointer}
+    .modal-image-wrap{background:var(--violet-tint);padding:0;width:100%;max-height:380px;overflow-y:auto;border-bottom:1px solid var(--border)}
+    .modal-image-wrap img{width:100%;height:auto;display:block;object-fit:cover;border-radius:0;box-shadow:none}
+    .modal-content{padding:28px 32px 36px}.modal-content h3{font-size:24px;margin:12px 0 20px}.modal-details{display:grid;gap:16px;margin:0}.modal-details dt{font:700 13px var(--font-display);color:var(--violet-dark);margin-bottom:4px}.modal-details dd{margin:0;font-size:15px}
+    
+    @media(max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-visual{height:340px}.about-inner,.contact-inner{grid-template-columns:1fr}.skills-grid{grid-template-columns:repeat(2,1fr)}.project-grid{grid-template-columns:1fr}}
+    @media(max-width:720px){.primary-nav{position:fixed;top:70px;left:16px;right:16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-card);flex-direction:column;padding:10px;gap:2px;transform:scaleY(0);opacity:0;pointer-events:none;transform-origin:top;transition:.18s}.primary-nav.is-open{transform:scaleY(1);opacity:1;pointer-events:auto}.nav-link{padding:12px 14px}.menu-toggle{display:flex}.section-inner{padding:64px 20px}.hero-inner{padding:56px 20px 64px}}
+    @media(max-width:560px){.skills-grid{grid-template-columns:1fr}.hero-actions{flex-direction:column;align-items:stretch}.footer-inner{flex-direction:column;text-align:center}.hero-visual{transform:scale(.9);transform-origin:center top}}
+  </style>
+</head>
+
+<body>
+<header class="site-header" id="top">
+  <div class="nav-wrap">
+    <a href="#top" class="brand" aria-label="Farah Ali home">
+      <span class="brand-mark">FA</span><span class="brand-name">Farah Ali</span>
+    </a>
+    <nav class="primary-nav" id="primary-nav">
+      <a href="#home" class="nav-link">Home</a><a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a><a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">Data Analyst & Business Intelligence</p>
+      <h1 class="hero-title">Farah Ali</h1>
+      <p class="hero-role">Data Analyst | Business Intelligence</p>
+      <p class="hero-text">I transform raw data into clear insights and interactive dashboards using Power BI, Tableau, Excel, and data analysis techniques.</p>
+      <div class="hero-actions"><a href="#projects" class="btn btn-primary">View My Projects</a><a href="#contact" class="btn btn-secondary">Contact Me</a></div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="panel panel-kpi"><span class="panel-label">Total Sales</span><span class="panel-value">10.03M</span></div>
+      <div class="panel panel-chart"><svg viewBox="0 0 220 110" class="mini-chart"><polyline points="0,80 30,60 60,68 90,40 120,52 150,20 180,34 210,10"/></svg></div>
+      <div class="panel panel-bars"><span class="bar" style="--h:40%"></span><span class="bar" style="--h:70%"></span><span class="bar" style="--h:55%"></span><span class="bar" style="--h:90%"></span><span class="bar" style="--h:65%"></span></div>
+      <div class="panel panel-donut"><svg viewBox="0 0 42 42" class="donut"><circle class="donut-ring" cx="21" cy="21" r="15.9"/><circle class="donut-seg" cx="21" cy="21" r="15.9" stroke-dasharray="66 100"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="section-inner about-inner">
+    <div class="section-head"><p class="eyebrow">About Me</p><h2>Turning data into decisions</h2></div>
+    <p class="about-text">I am a Data Analyst focused on transforming data into meaningful insights and interactive dashboards. I work with Power BI, Tableau, Excel, DAX, Power Query, and data visualization. I enjoy analyzing business data, identifying trends and patterns, and presenting insights through clear and interactive dashboards.</p>
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <div class="section-inner">
+    <div class="section-head"><p class="eyebrow">Skills</p><h2>Tools I build with</h2></div>
+    <ul class="skills-grid">
+      <li class="skill-card"><span class="skill-icon">BI</span><span class="skill-name">Power BI</span></li>
+      <li class="skill-card"><span class="skill-icon">DAX</span><span class="skill-name">DAX</span></li>
+      <li class="skill-card"><span class="skill-icon">PQ</span><span class="skill-name">Power Query</span></li>
+      <li class="skill-card"><span class="skill-icon">DM</span><span class="skill-name">Data Modeling</span></li>
+      <li class="skill-card"><span class="skill-icon">DV</span><span class="skill-name">Data Visualization</span></li>
+      <li class="skill-card"><span class="skill-icon">T</span><span class="skill-name">Tableau</span></li>
+      <li class="skill-card"><span class="skill-icon">X</span><span class="skill-name">Microsoft Excel</span></li>
+      <li class="skill-card"><span class="skill-icon">DA</span><span class="skill-name">Data Analysis</span></li>
+      <li class="skill-card"><span class="skill-icon">DB</span><span class="skill-name">Dashboard Development</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="projects" id="projects">
+  <div class="section-inner">
+    <div class="section-head"><p class="eyebrow">Projects</p><h2>Selected dashboards</h2></div>
+    <div class="project-grid">
+
+      <!-- Project 1 -->
+      <article class="project-card">
+        <div class="project-thumb">
+          <span class="tool-badge">Power BI</span>
+          <img src="C:\Users\ali-a\OneDrive\الصور\New folder\Screenshot 2026-06-28 232137.png" alt="Interactive Sales Performance Dashboard" class="project-img">
+        </div>
+        <div class="project-body">
+          <h3>Interactive Sales Performance Dashboard</h3>
+          <p class="project-summary">Consolidated 10.03M in total sales and 307 orders into one interactive view for stakeholders.</p>
+          <button class="btn btn-outline view-project-btn" data-project="sales">View Project</button>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card">
+        <div class="project-thumb">
+          <span class="tool-badge">Power BI</span>
+          <img src="C:\Users\ali-a\OneDrive\الصور\New folder\Screenshot 2026-08-31 102509.png" alt="Multi-Platform Social Media Analytics Dashboard" class="project-img">
+        </div>
+        <div class="project-body">
+          <h3>Multi-Platform Social Media Analytics Dashboard</h3>
+          <p class="project-summary">Compared Facebook, Instagram, LinkedIn and X performance to guide content strategy.</p>
+          <button class="btn btn-outline view-project-btn" data-project="social">View Project</button>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card">
+        <div class="project-thumb">
+          <span class="tool-badge">Power BI</span>
+          <img src="C:\Users\ali-a\OneDrive\الصور\New folder\Screenshot 2026-09-02 005015.png" alt="E-commerce Sales & Customer Analytics Dashboard" class="project-img">
+        </div>
+        <div class="project-body">
+          <h3>E-commerce Sales & Customer Analytics Dashboard</h3>
+          <p class="project-summary">Analyzed 21.17M in sales by demographics, category and channel for Vrinda Store.</p>
+          <button class="btn btn-outline view-project-btn" data-project="vrinda">View Project</button>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project-card">
+        <div class="project-thumb">
+          <span class="tool-badge">Power BI</span>
+          <img src="C:\Users\ali-a\OneDrive\الصور\Screenshots\Screenshot 2026-07-27 201433.png" alt="Vehicle Sales Analytics Suite" class="project-img">
+        </div>
+        <div class="project-body">
+          <h3>Vehicle Sales Analytics Suite</h3>
+          <p class="project-summary">A 3-page report covering 22M in vehicle sales with 4.10% YoY growth, 2002–2023.</p>
+          <button class="btn btn-outline view-project-btn" data-project="vehicle">View Project</button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-inner contact-inner">
+    <div class="contact-copy"><p class="eyebrow">Contact Me</p><h2>Let's Work With Data</h2><p>Have a dataset that needs to be transformed into clear insights? Let's turn your data into meaningful analysis and interactive dashboards.</p></div>
+    <ul class="contact-list">
+      <li><a href="mailto:fa5399371@gmail.com" class="contact-link"><span class="contact-icon">✉</span><span class="contact-text"><span class="contact-label">Email</span><span class="contact-value">fa5399371@gmail.com</span></span></a></li>
+      <li><a href="tel:01007808749" class="contact-link"><span class="contact-icon">☎</span><span class="contact-text"><span class="contact-label">Phone</span><span class="contact-value">01007808749</span></span></a></li>
+      <li><a href="https://www.linkedin.com/in/farah-ali-8a3779319" target="_blank" rel="noopener noreferrer" class="contact-link"><span class="contact-icon">in</span><span class="contact-text"><span class="contact-label">LinkedIn</span><span class="contact-value">linkedin.com/in/farah-ali</span></span></a></li>
+      <li><a href="https://github.com/Farrah878" target="_blank" rel="noopener noreferrer" class="contact-link"><span class="contact-icon">GH</span><span class="contact-text"><span class="contact-label">GitHub</span><span class="contact-value">github.com/Farrah878</span></span></a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="section-inner footer-inner">
+    <p>© 2026 Farah Ali. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/farah-ali-8a3779319" target="_blank" aria-label="LinkedIn"><span class="contact-icon">in</span></a>
+      <a href="https://github.com/Farrah878" target="_blank" aria-label="GitHub"><span class="contact-icon">GH</span></a>
+      <a href="mailto:fa5399371@gmail.com" aria-label="Email"><span class="contact-icon">✉</span></a>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+    <div class="modal-image-wrap"><div id="modal-preview"></div></div>
+    <div class="modal-content">
+      <span class="tool-badge" id="modal-tool" style="position:static;display:inline-block">Power BI</span>
+      <h3 id="modal-title"></h3>
+      <dl class="modal-details">
+        <div><dt>Goal</dt><dd id="modal-goal"></dd></div>
+        <div><dt>Role</dt><dd id="modal-role"></dd></div>
+        <div><dt>Method</dt><dd id="modal-method"></dd></div>
+        <div><dt>Result</dt><dd id="modal-result"></dd></div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+ const projects = {
+    sales: {
+      title: "Interactive Sales Performance Dashboard",
+      tool: "Power BI",
+      images: ["New folder/Screenshot 2026-06-28 232137.png"],
+      goal: "Give stakeholders a single view of sales performance across time, region, product line, and order status so they could spot trends and bottlenecks without digging through raw data.",
+      role: "Built the entire dashboard end to end — data modeling, KPI cards, charts, and filters.",
+      method: "Power BI with slicers for year/quarter/product line, KPI cards for totals, a monthly trend line, bar chart by territory, deal-size analysis, and geographic sales analysis.",
+      result: "Consolidated 10.03M in total sales and 307 orders into one interactive view."
+    },
+    social: {
+      title: "Multi-Platform Social Media Analytics Dashboard",
+      tool: "Power BI",
+      images: ["New folder/Screenshot 2026-08-31 102509.png"],
+      goal: "Track and compare performance across Facebook, Instagram, LinkedIn, and X to guide content and engagement strategy.",
+      role: "Designed and built the dashboard, including platform filters and week-range selector.",
+      method: "Power BI using weekly slicers, KPI cards, impressions trends, engagement comparison, and likes-versus-reach analysis.",
+      result: "Surfaced that X had the highest engagement rate at 2.69% despite lower volume."
+    },
+    vrinda: {
+      title: "E-commerce Sales & Customer Analytics Dashboard",
+      tool: "Power BI",
+      images: ["New folder/Screenshot 2026-09-02 005015.png"],
+      goal: "Analyze sales performance by demographics, category, and sales channel to identify the store's strongest segments and weak points.",
+      role: "Sole developer of the dashboard, from raw order data to final visuals.",
+      method: "Power BI with KPI cards, monthly trends, gender split, category and channel charts, age-group breakdown, and order-status analysis.",
+      result: "Revealed that Women accounted for the majority of the 21.17M in sales and that Set was the top-selling category."
+    },
+    vehicle: {
+      title: "Vehicle Sales Analytics Suite",
+      tool: "Power BI",
+      images: [
+        "New folder/Screenshot 2026-07-27 201433.png",
+        "New folder/Screenshot 2026-07-27 201732.png",
+        "New folder/Screenshot 2026-07-27 201745.png"
+      ],
+      goal: "Provide a full picture of new vs. used vehicle sales, totals, trends over 20+ years, and year-over-year performance.",
+      role: "Designed and built all three report pages, including navigation, KPIs, and interactivity.",
+      method: "Power BI with month/year/quarter filters, KPI cards, combo charts, donut analysis, area trends, and YoY comparison.",
+      result: "Delivered a 22M total vehicle sales overview showing 4.10% YoY growth and a 66/34 split between used and new vehicles."
+    }
+  };
+  const menu=document.getElementById("menu-toggle"),nav=document.getElementById("primary-nav");
+  menu.addEventListener("click",()=>{
+    const open=nav.classList.toggle("is-open");
+    menu.classList.toggle("is-open",open);menu.setAttribute("aria-expanded",open);
+  });
+  nav.querySelectorAll(".nav-link").forEach(a=>a.addEventListener("click",()=>{
+    nav.classList.remove("is-open");menu.classList.remove("is-open");menu.setAttribute("aria-expanded","false");
+  }));
+
+  const overlay=document.getElementById("modal-overlay"),close=document.getElementById("modal-close");
+  function openProject(key){
+    const p=projects[key];if(!p)return;
+    document.getElementById("modal-tool").textContent=p.tool;
+    document.getElementById("modal-title").textContent=p.title;
+    document.getElementById("modal-goal").textContent=p.goal;
+    document.getElementById("modal-role").textContent=p.role;
+    document.getElementById("modal-method").textContent=p.method;
+    document.getElementById("modal-result").textContent=p.result;
+    
+    // Build Modal Images
+    const imagesHTML = p.images.map(img => `<img src="${img}" alt="${p.title}">`).join('');
+    document.getElementById("modal-preview").innerHTML = imagesHTML;
+
+    overlay.classList.add("is-open");document.body.style.overflow="hidden";close.focus();
+  }
+  document.querySelectorAll(".view-project-btn").forEach(b=>b.addEventListener("click",()=>openProject(b.dataset.project)));
+  close.addEventListener("click",()=>{overlay.classList.remove("is-open");document.body.style.overflow=""});
+  overlay.addEventListener("click",e=>{if(e.target===overlay)close.click()});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&overlay.classList.contains("is-open"))close.click()});
+
+  const targets=document.querySelectorAll(".project-card,.skill-card");
+  if("IntersectionObserver" in window){
+    targets.forEach(el=>{el.style.opacity="0";el.style.transform="translateY(16px)";el.style.transition="opacity .5s ease,transform .5s ease"});
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.opacity="1";entry.target.style.transform="translateY(0)";observer.unobserve(entry.target)}})
+    },{threshold:.15});
+    targets.forEach(el=>observer.observe(el));
+  }
+});
+</script>
+</body>
+</html>
